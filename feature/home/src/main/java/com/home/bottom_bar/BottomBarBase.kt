@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -21,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -34,10 +36,13 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import com.core.R
 import com.core.ui.theme.MagicDownloaderTheme
+import com.core.ui.model.ArrowShowCaseType
+import com.core.ui.model.IntroShowCaseModel
+import com.core.ui.composable.introshowcase.IntroShowcaseScope
+import com.core.ui.composable.introshowcase.components.ShowcaseStyle
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 @Composable
 internal fun BottomBarBase(
@@ -45,6 +50,7 @@ internal fun BottomBarBase(
     tabs: Flow<List<Int>>,
     isVisible: Boolean,
     onClick: (item: AppBottomBarItem, currentRoute: String?) -> Unit,
+    introShowcaseScope: IntroShowcaseScope,
 ) {
     val items: List<AppBottomBarItem> = listOf(
         AppBottomBarItem.SocialList,
@@ -59,7 +65,8 @@ internal fun BottomBarBase(
         .toMutableList()
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.parent?.route ?: navBackStackEntry?.destination?.route
+    val currentRoute =
+        navBackStackEntry?.destination?.parent?.route ?: navBackStackEntry?.destination?.route
     val selectedRoute = getSelectedRoute(currentRoute)
 
     BottomBarBase(
@@ -69,6 +76,7 @@ internal fun BottomBarBase(
         tabs = tabs,
         isVisible = routeList.contains(selectedRoute) && isVisible,
         onClick = onClick,
+        introShowcaseScope
     )
 }
 
@@ -80,6 +88,7 @@ private fun BottomBarBase(
     tabs: Flow<List<Int>>,
     isVisible: Boolean,
     onClick: (item: AppBottomBarItem, currentRoute: String?) -> Unit,
+    introShowcaseScope: IntroShowcaseScope,
 ) {
     val tabsValue by tabs.collectAsStateWithLifecycle(initialValue = emptyList())
 
@@ -105,7 +114,20 @@ private fun BottomBarBase(
                 icon = {
                     Box(
                         contentAlignment = Alignment.Center,
-                        modifier = Modifier
+                        modifier = with(introShowcaseScope) {
+                            if (AppBottomBarItem.Setting == item) {
+                                Modifier.
+                                introShowCaseTarget(
+                                    index = 3,
+                                    style = ShowcaseStyle.Default.copy(paddingTop = 40f),
+                                    introShowCaseModel = IntroShowCaseModel(
+                                        R.string.access_downloaded_videos,
+                                        ArrowShowCaseType.RIGHT_BOTTOM,
+                                        R.string.get_started
+                                    )
+                                ).clip(CircleShape).padding(all = 6.dp)
+                            } else Modifier
+                        }
                     ) {
                         Icon(
                             imageVector = ImageVector.vectorResource(id = item.icon),
@@ -189,12 +211,6 @@ private fun PreviewBase() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            BottomBarBase(
-                navController = rememberNavController(),
-                tabs = flow { },
-                isVisible = true,
-                onClick = { _, _ -> },
-            )
         }
     }
 }

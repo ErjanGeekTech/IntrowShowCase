@@ -7,20 +7,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.core.ui.theme.MagicDownloaderTheme
+import com.core.ui.composable.introshowcase.IntroShowcaseScope
 import kotlinx.coroutines.flow.flow
 
 @Composable
 internal fun AppBottomBar(
     navController: NavController,
     onClick: (item: AppBottomBarItem, currentRoute: String?) -> Unit,
+    introShowcaseScope: IntroShowcaseScope,
 ) {
     BottomBarBase(
         navController = navController,
         tabs = flow { emit(listOf(1)) },
         isVisible = true,
         onClick = onClick,
+        introShowcaseScope
     )
 }
 
@@ -44,12 +46,6 @@ private fun PreviewBase() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            BottomBarBase(
-                navController = rememberNavController(),
-                tabs = flow { },
-                isVisible = true,
-                onClick = { _, _ -> },
-            )
         }
     }
 }

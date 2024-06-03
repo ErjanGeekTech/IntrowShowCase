@@ -3,6 +3,7 @@ package com.social_list
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -14,18 +15,34 @@ import com.core.ui.utils.getActivity
 import com.mvi.main_mvi.MainEvent
 import com.mvi.main_mvi.MainViewModel
 import com.social_list.composable.ScreenV3V4
+import com.core.ui.composable.introshowcase.IntroShowcaseScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 
 @Composable
 internal fun SocialListScreen(
     viewModel: SocialListViewModel,
     mainViewModel: MainViewModel,
+    onIntroShowCase: () -> Unit,
+    showcaseScope: IntroShowcaseScope
 ) {
     val activity = getActivity()
     val context = LocalContext.current
 
     var onBackCount by remember { mutableIntStateOf(0) }
 
-    ScreenV3V4 { viewModel.sendEvent(it) }
+    LaunchedEffect(
+        key1 = Unit,
+        block = {
+            viewModel.singleEvent.onEach {
+                onIntroShowCase.invoke()
+            }.collect()
+        }
+    )
+
+    ScreenV3V4(showcaseScope) {
+        viewModel.sendEvent(it)
+    }
 
     LifecycleListener(
         onStart = { onBackCount = 0 },
@@ -35,7 +52,11 @@ internal fun SocialListScreen(
         mainViewModel.sendEvent(
             MainEvent.RateUp(activity = activity) {
                 ++onBackCount
-                Toast.makeText(context, context.getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.press_again_to_exit),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
     }

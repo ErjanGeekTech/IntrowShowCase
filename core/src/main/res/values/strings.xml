@@ -214,4 +214,11 @@
     <string name="access_your_downloaded">Access your downloaded videos here</string>
 
     <string name="home_manual">Home manual</string>
+
+    <!--region Intro Show Case-->
+    <string name="easily_find_video">Easily find and save any video from the web!</string>
+    <string name="download_video_media_popular">Download videos from social media &amp; popular sites hassle-free!</string>
+    <string name="country_access_blocked_sites">Access blocked sites in your country using proxies</string>
+    <string name="access_downloaded_videos">Access your downloaded videos here</string>
+    <!--endregion-->
 </resources>

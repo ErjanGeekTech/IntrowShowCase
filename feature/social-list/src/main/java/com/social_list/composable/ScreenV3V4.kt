@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -47,9 +48,14 @@ import com.core.ui.model.Social
 import com.core.ui.modifier.clickableSingle
 import com.core.ui.theme.MagicDownloaderTheme
 import com.social_list.SocialListEvent
+import com.core.ui.model.ArrowShowCaseType
+import com.core.ui.model.IntroShowCaseModel
+import com.core.ui.composable.introshowcase.IntroShowcaseScope
+import com.core.ui.composable.introshowcase.components.ShowcaseStyle
 
 @Composable
 internal fun ScreenV3V4(
+    showcaseScope: IntroShowcaseScope,
     onClick: (SocialListEvent) -> Unit,
 ) {
     val scrollState = rememberScrollState()
@@ -68,28 +74,52 @@ internal fun ScreenV3V4(
             Row(
                 horizontalArrangement = Arrangement.spacedBy(space = 4.dp),
                 verticalAlignment = Alignment.Top,
-                modifier = Modifier
-                    .align(alignment = Alignment.End)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .size(size = 48.dp)
-                        .clip(shape = MaterialTheme.shapes.extraLarge)
-                        .clickableSingle { }
-                        .padding(all = 4.dp)
-                        .padding(all = 6.dp)
-                        .border(width = 2.dp, shape = CircleShape, color = Color(0xFFFF9901))
+                    painter = painterResource(id = R.drawable.ic_country),
+                    contentDescription = "",
+                    modifier = with(showcaseScope) {
+                        Modifier
+                            .introShowCaseTarget(
+                                index = 2,
+                                style = ShowcaseStyle.Default.copy(paddingTop = 80f),
+                                introShowCaseModel = IntroShowCaseModel(
+                                    R.string.country_access_blocked_sites,
+                                    ArrowShowCaseType.LEFT_TOP,
+                                )
+                            )
+                            .size(size = 48.dp)
+                    },
+                    tint = Color.Unspecified
                 )
 
-                MagicMenu(
-                    items = listOf(
-                        MagicMenuItem.Tutorial to { },
-                        MagicMenuItem.HomeManual to { },
+                Row(
+                    modifier = Modifier.weight(1f),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier
+                            .size(size = 48.dp)
+                            .clip(shape = MaterialTheme.shapes.extraLarge)
+                            .clickableSingle {
+                            }
+                            .padding(all = 4.dp)
+                            .padding(all = 6.dp)
+                            .border(width = 2.dp, shape = CircleShape, color = Color(0xFFFF9901))
                     )
-                )
+
+                    MagicMenu(
+                        items = listOf(
+                            MagicMenuItem.Tutorial to { },
+                            MagicMenuItem.HomeManual to {
+                                onClick(SocialListEvent.OnBoardingSocialListEvent)
+                            }
+                        )
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(height = 5.dp))
@@ -113,8 +143,17 @@ internal fun ScreenV3V4(
                     type = remember { mutableStateOf(Social.Websites) },
                     placeholderText = R.string.search_or_type_url,
                     readOnly = true,
+                    modifier = with(showcaseScope) {
+                        Modifier.introShowCaseTarget(
+                            index = 0,
+                            style = ShowcaseStyle.Default,
+                            introShowCaseModel = IntroShowCaseModel(
+                                R.string.easily_find_video,
+                                ArrowShowCaseType.TOP
+                            )
+                        )
+                    }
                 )
-
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -143,7 +182,18 @@ internal fun ScreenV3V4(
 
             Spacer(modifier = Modifier.weight(weight = 6f))
 
-            SocialsV4()
+            SocialsV4(
+                modifier = with(showcaseScope) {
+                    Modifier.introShowCaseTarget(
+                        index = 1,
+                        style = ShowcaseStyle.Default,
+                        introShowCaseModel = IntroShowCaseModel(
+                            R.string.download_video_media_popular,
+                            ArrowShowCaseType.TOP
+                        )
+                    )
+                }
+            )
 
             Spacer(modifier = Modifier.height(height = 16.dp))
 
@@ -160,6 +210,5 @@ internal fun ScreenV3V4(
 @Composable
 private fun ScreenNewPreview() {
     MagicDownloaderTheme {
-        ScreenV3V4 {}
     }
 }

@@ -6,6 +6,11 @@ import com.mvi.ScreenState
 
 class SocialListState : ScreenState
 
-sealed interface SocialListEvent : ScreenEvent
+sealed interface SocialListEvent : ScreenEvent {
+    data object OnBoardingSocialListEvent : SocialListEvent
+}
 
-sealed interface SocialListSingleEvent : ScreenSingleEvent
+sealed interface SocialListSingleEvent : ScreenSingleEvent {
+
+    data object IntroShowcaseSocialSingleEvent : SocialListSingleEvent
+}

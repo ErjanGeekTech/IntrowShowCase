@@ -2,7 +2,8 @@ package com.social_list
 
 import com.mvi.MviProcessor
 
-class SocialListViewModel : MviProcessor<SocialListState, SocialListEvent, SocialListSingleEvent>() {
+class SocialListViewModel :
+    MviProcessor<SocialListState, SocialListEvent, SocialListSingleEvent>() {
 
     override fun initialState(): SocialListState {
         return SocialListState()
@@ -12,7 +13,13 @@ class SocialListViewModel : MviProcessor<SocialListState, SocialListEvent, Socia
         return state
     }
 
-    override suspend fun handleEvent(event: SocialListEvent, state: SocialListState): SocialListEvent? {
+    override suspend fun handleEvent(
+        event: SocialListEvent,
+        state: SocialListState
+    ): SocialListEvent? {
+        when (event) {
+            SocialListEvent.OnBoardingSocialListEvent -> triggerSingleEvent(SocialListSingleEvent.IntroShowcaseSocialSingleEvent)
+        }
         return null
     }
 }
