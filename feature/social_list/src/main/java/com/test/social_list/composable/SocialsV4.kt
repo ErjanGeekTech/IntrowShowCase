@@ -1,4 +1,4 @@
-package com.social_list.composable
+package com.test.social_list.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.core.R
+import com.test.core.R
 import com.core.ui.composable.social_card.SocialCardV4
 import com.core.ui.model.SocialV4
 import com.core.ui.theme.MagicDownloaderTheme

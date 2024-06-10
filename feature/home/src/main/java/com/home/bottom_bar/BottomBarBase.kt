@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.core.R
+import com.test.core.R
 import com.core.ui.theme.MagicDownloaderTheme
 import com.core.ui.model.ArrowShowCaseType
 import com.core.ui.model.IntroShowCaseModel

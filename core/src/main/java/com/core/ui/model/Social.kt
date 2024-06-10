@@ -2,6 +2,7 @@ package com.core.ui.model
 
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import com.test.core.R
 
 enum class Social(
     var icon: Int,
@@ -15,9 +16,9 @@ enum class Social(
     val isEnable: Boolean = true,
 ) {
     Instagram(
-        icon = com.core.R.drawable.ic_instagram,
-        iconApp = com.core.R.drawable.ic_app_instagram,
-        title = com.core.R.string.instagram,
+        icon = R.drawable.ic_instagram,
+        iconApp = R.drawable.ic_app_instagram,
+        title = R.string.instagram,
         backgroundColor = Color(0xFFFF4081),
         backgroundGradient = Brush.linearGradient(
             colors = listOf(
@@ -32,23 +33,23 @@ enum class Social(
         baseUrl = listOf("www.instagram.com", "instagram.com"),
     ),
     Twitter(
-        icon = com.core.R.drawable.ic_x,
-        iconApp = com.core.R.drawable.ic_app_twitter,
-        title = com.core.R.string.x,
+        icon = R.drawable.ic_x,
+        iconApp = R.drawable.ic_app_twitter,
+        title = R.string.x,
         backgroundColor = Color(0xFF000000),
         baseUrl = listOf("twitter.com", "x.com"),
     ),
     Facebook(
-        icon = com.core.R.drawable.ic_facebook,
-        iconApp = com.core.R.drawable.ic_app_facebook,
-        title = com.core.R.string.facebook,
+        icon = R.drawable.ic_facebook,
+        iconApp = R.drawable.ic_app_facebook,
+        title = R.string.facebook,
         backgroundColor = Color(0xFF2979FF),
         baseUrl = listOf("m.facebook.com", "facebook.com", "fb.watch"),
     ),
     Websites(
-        icon = com.core.R.drawable.ic_websites,
-        iconApp = com.core.R.drawable.ic_source,
-        title = com.core.R.string.downloads,
+        icon = R.drawable.ic_websites,
+        iconApp = R.drawable.ic_source,
+        title = R.string.downloads,
         backgroundColor = Color(0xFF7C4DFF),
         baseUrl = emptyList(),
     );

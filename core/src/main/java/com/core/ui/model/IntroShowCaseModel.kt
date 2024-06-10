@@ -1,7 +1,7 @@
 package com.core.ui.model
 
 import androidx.annotation.StringRes
-import com.core.R
+import com.test.core.R
 
 data class IntroShowCaseModel(
     @StringRes

@@ -1,4 +1,4 @@
-package com.social_list.composable
+package com.test.social_list.composable
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -39,7 +39,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.core.R
 import com.core.ui.composable.Content
 import com.core.ui.composable.MagicMenu
 import com.core.ui.composable.MagicMenuItem
@@ -47,8 +46,9 @@ import com.core.ui.composable.input_link.GlobalInputLinkNew
 import com.core.ui.model.Social
 import com.core.ui.modifier.clickableSingle
 import com.core.ui.theme.MagicDownloaderTheme
-import com.social_list.SocialListEvent
+import com.test.social_list.SocialListEvent
 import com.core.ui.model.ArrowShowCaseType
+import com.test.core.R
 import com.core.ui.model.IntroShowCaseModel
 import com.core.ui.composable.introshowcase.IntroShowcaseScope
 import com.core.ui.composable.introshowcase.components.ShowcaseStyle

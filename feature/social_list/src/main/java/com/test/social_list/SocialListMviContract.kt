@@ -1,4 +1,4 @@
-package com.social_list
+package com.test.social_list
 
 import com.mvi.ScreenEvent
 import com.mvi.ScreenSingleEvent

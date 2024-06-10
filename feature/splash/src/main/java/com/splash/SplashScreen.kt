@@ -59,6 +59,7 @@ import com.core.ui.theme.TransparencyWhite100
 import com.core.ui.theme.VerticalGradientWhite50
 import com.mvi.main_mvi.MainEvent
 import com.mvi.main_mvi.MainViewModel
+import com.test.core.R
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
@@ -158,7 +159,7 @@ private fun Progress(
             Spacer(modifier = Modifier.weight(weight = 1f))
 
             Image(
-                imageVector = ImageVector.vectorResource(id = com.core.R.drawable.logo2),
+                imageVector = ImageVector.vectorResource(id = R.drawable.logo2),
                 contentDescription = null,
                 modifier = Modifier
                     .shadow(color = MaterialTheme.colorScheme.onBackground, alpha = 0.3f)
@@ -167,7 +168,7 @@ private fun Progress(
             Spacer(modifier = Modifier.height(height = 26.dp))
 
             Text(
-                text = stringResource(id = com.core.R.string.app_name).trim(),
+                text = stringResource(id = R.string.app_name).trim(),
                 style = TextStyle(
                     fontSize = 24.sp,
                     lineHeight = 26.4.sp,
@@ -210,7 +211,7 @@ private fun PrivacyPolicy(
                 .fillMaxSize()
         ) {
             Image(
-                bitmap = ImageBitmap.imageResource(id = com.core.R.drawable.img_bg_splash),
+                bitmap = ImageBitmap.imageResource(id = R.drawable.img_bg_splash),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -239,7 +240,7 @@ private fun PrivacyPolicy(
                         .navigationBarsPadding()
                 ) {
                     Text(
-                        text = stringResource(id = com.core.R.string.welcome_to_video_downloader),
+                        text = stringResource(id = R.string.welcome_to_video_downloader),
                         style = TextStyle(
                             fontSize = 28.sp,
                             fontWeight = FontWeight(700),
@@ -253,7 +254,7 @@ private fun PrivacyPolicy(
                     Spacer(modifier = Modifier.height(height = 20.dp))
 
                     ActionButton(
-                        text = com.core.R.string.continue_text,
+                        text = R.string.continue_text,
                         enabled = checkedValue,
                         onClick = { onClick.invoke(SplashEvent.AgreePrivacyPolicy) },
                         modifier = Modifier
@@ -291,11 +292,11 @@ private fun PrivacyPolicy(
 
 @Composable
 private fun PrivacyTos() {
-    val tos = stringResource(id = com.core.R.string.tos)
-    val privacyPolicy = stringResource(id = com.core.R.string.privacy_policy)
+    val tos = stringResource(id = R.string.tos)
+    val privacyPolicy = stringResource(id = R.string.privacy_policy)
 
     val annotatedString = buildAnnotatedString {
-        append(text = stringResource(id = com.core.R.string.by_clicking_continue))
+        append(text = stringResource(id = R.string.by_clicking_continue))
 
         append(text = " ")
 
@@ -312,7 +313,7 @@ private fun PrivacyTos() {
         }
 
         append(text = " ")
-        append(text = stringResource(id = com.core.R.string.and))
+        append(text = stringResource(id = R.string.and))
         append(text = " ")
 
         withStyle(

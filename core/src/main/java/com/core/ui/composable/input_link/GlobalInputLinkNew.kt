@@ -36,11 +36,11 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.core.R
 import com.core.ui.composable.LifecycleListener
 import com.core.ui.model.Social
 import com.core.ui.modifier.clickableSingle
 import com.core.ui.theme.MagicDownloaderTheme
+import com.test.core.R
 
 private var lastCotyText: String? = ""
 

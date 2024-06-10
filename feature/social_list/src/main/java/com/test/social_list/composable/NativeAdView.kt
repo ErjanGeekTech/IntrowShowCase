@@ -1,4 +1,4 @@
-package com.social_list.composable
+package com.test.social_list.composable
 
 import android.view.View
 import androidx.compose.animation.animateContentSize

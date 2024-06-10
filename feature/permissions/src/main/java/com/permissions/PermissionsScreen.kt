@@ -42,6 +42,7 @@ import com.core.ui.composable.ActionButton
 import com.core.ui.composable.Content
 import com.core.ui.modifier.clickableSingle
 import com.core.ui.theme.MagicDownloaderTheme
+import com.test.core.R
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
@@ -102,7 +103,7 @@ private fun Screen(
                 .navigationBarsPadding()
         ) {
             Text(
-                text = stringResource(id = com.core.R.string.skip),
+                text = stringResource(id = R.string.skip),
                 style = TextStyle(
                     fontSize = 16.sp,
                     lineHeight = 17.6.sp,
@@ -146,7 +147,7 @@ private fun Screen(
             Text(
                 text = stringResource(
                     id = state.subtext,
-                    stringResource(id = com.core.R.string.app_name).trim()
+                    stringResource(id = R.string.app_name).trim()
                 ),
                 style = TextStyle(
                     fontSize = 17.sp,
@@ -189,10 +190,10 @@ private fun ScreenPreview() {
     MagicDownloaderTheme {
         Screen(
             state = PermissionsState(
-                image = com.core.R.drawable.img_onb_notifi_perm,
-                text = com.core.R.string.text_onb_notifi,
-                subtext = com.core.R.string.subtext_onb_notifi,
-                buttonText = com.core.R.string.enable_notifications,
+                image = R.drawable.img_onb_notifi_perm,
+                text = R.string.text_onb_notifi,
+                subtext = R.string.subtext_onb_notifi,
+                buttonText = R.string.enable_notifications,
                 actionEvent = PermissionsEvent.Next,
             )
         ) {}

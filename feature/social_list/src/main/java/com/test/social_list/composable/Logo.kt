@@ -1,11 +1,11 @@
-package com.social_list.composable
+package com.test.social_list.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.core.R
+import com.test.core.R
 
 @Composable
 internal fun Logo() {

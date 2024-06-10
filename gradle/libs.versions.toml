@@ -37,6 +37,10 @@ firebase-bom = "32.8.1"
 workRuntimeKtx = "2.9.0"
 
 [libraries]
+# Only for build-logic
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }

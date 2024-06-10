@@ -56,14 +56,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.core.R
 import com.core.ui.composable.ActionButton
 import com.core.ui.theme.TransparencyBlack40
 import com.core.ui.model.ArrowShowCaseType
 import com.core.ui.model.IntroShowCaseModel
+import com.test.core.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.concurrent.Flow
 import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min

@@ -2,7 +2,8 @@
 
 package com.home.bottom_bar
 
-import com.social_list.navigation.socialListScreenRoute
+import com.test.social_list.navigation.socialListScreenRoute
+import com.test.core.R
 
 enum class AppBottomBarItem(
     val icon: Int,
@@ -10,28 +11,28 @@ enum class AppBottomBarItem(
     val route: String,
 ) {
     SocialList(
-        icon = com.core.R.drawable.ic_home,
-        title = com.core.R.string.home,
+        icon = R.drawable.ic_home,
+        title = R.string.home,
         route = socialListScreenRoute
     ),
     DownloadList(
-        icon = com.core.R.drawable.ic_downloads,
-        title = com.core.R.string.downloads,
+        icon = R.drawable.ic_downloads,
+        title = R.string.downloads,
         route = "downloadScreenRoute"
     ),
     History(
-        icon = com.core.R.drawable.ic_history,
-        title = com.core.R.string.history,
+        icon = R.drawable.ic_history,
+        title = R.string.history,
         route = "browserHistoryScreenRoute"
     ),
     Tabs(
-        icon = com.core.R.drawable.ic_tabs,
-        title = com.core.R.string.tabs,
+        icon = R.drawable.ic_tabs,
+        title = R.string.tabs,
         route = "browserTabsScreenRoute"
     ),
     Setting(
-        icon = com.core.R.drawable.ic_setting,
-        title = com.core.R.string.settings,
+        icon = R.drawable.ic_setting,
+        title = R.string.settings,
         route = "settingScreenRoute"
     ),
 }

@@ -2,6 +2,7 @@ package com.permissions
 
 import androidx.lifecycle.SavedStateHandle
 import com.mvi.MviProcessor
+import com.test.core.R
 
 class PermissionsViewModel(
     savedStateHandle: SavedStateHandle,
@@ -38,10 +39,10 @@ class PermissionsViewModel(
 
     private fun firstData(): PermissionsState {
         return PermissionsState(
-            image = com.core.R.drawable.img_onb_notifi_perm,
-            text = com.core.R.string.text_onb_notifi,
-            subtext = com.core.R.string.subtext_onb_notifi,
-            buttonText = com.core.R.string.enable_notifications,
+            image = R.drawable.img_onb_notifi_perm,
+            text = R.string.text_onb_notifi,
+            subtext = R.string.subtext_onb_notifi,
+            buttonText = R.string.enable_notifications,
             actionEvent = PermissionsEvent.Next,
         )
     }

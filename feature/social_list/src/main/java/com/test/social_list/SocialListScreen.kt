@@ -1,4 +1,4 @@
-package com.social_list
+package com.test.social_list
 
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
@@ -9,12 +9,12 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import com.core.R
+import com.test.core.R
 import com.core.ui.composable.LifecycleListener
 import com.core.ui.utils.getActivity
 import com.mvi.main_mvi.MainEvent
 import com.mvi.main_mvi.MainViewModel
-import com.social_list.composable.ScreenV3V4
+import com.test.social_list.composable.ScreenV3V4
 import com.core.ui.composable.introshowcase.IntroShowcaseScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach

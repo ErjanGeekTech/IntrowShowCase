@@ -1,7 +1,10 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+includeBuild("build-logic")
 pluginManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
         gradlePluginPortal()
     }
 }
@@ -11,15 +14,21 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "Test"
-include(":app")
-include(":core")
-include(":mvi")
 
-include(":feature:splash")
-include(":feature:home")
-include(":feature:social-list")
-include(":feature:permissions")
+include(
+    ":core",
+    ":mvi"
+)
+
+include(
+    ":app",
+    ":feature:splash",
+    ":feature:home",
+    ":feature:social_list",
+    ":feature:permissions"
+)

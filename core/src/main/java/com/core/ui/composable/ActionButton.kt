@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.core.ui.modifier.MultipleEventsCutter
 import com.core.ui.theme.MagicDownloaderTheme
+import com.test.core.R
 
 @Composable
 fun ActionButton(
@@ -172,14 +173,14 @@ private fun Preview() {
             modifier = Modifier
         ) {
             Button(
-                text = stringResource(id = com.core.R.string.downloads),
-                icon = com.core.R.drawable.ic_download,
+                text = stringResource(id = R.string.downloads),
+                icon = R.drawable.ic_download,
             ) {}
 
             Button(
                 enabled = false,
-                text = stringResource(id = com.core.R.string.downloads),
-                icon = com.core.R.drawable.ic_download,
+                text = stringResource(id = R.string.downloads),
+                icon = R.drawable.ic_download,
             ) {}
         }
     }
